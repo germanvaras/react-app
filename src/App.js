@@ -1,16 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
-
+import NavBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
   return (
-    
-      <main className="App-Main">
-        <h1 className='Main-titulo'>React App</h1>
-        <img src={logo} className="Main-logo" alt="logo" />
-        <p className='Main-p'>Made by Germán Varas</p>
-      </main>
-
+      <>
+      <NavBar />
+      <ItemListContainer greeting ="React App"/>
+      </>
   );
 }
 

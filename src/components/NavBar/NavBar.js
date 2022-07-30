@@ -1,4 +1,5 @@
-import '../App.css';
+import "./NavBar.css";
+import CartWidget from "../CartWidget/CartWidget";
 function NavBar(){
     return(
        <header className='header'>
@@ -9,6 +10,7 @@ function NavBar(){
                 <a href="#" className='ul-li'><li>Tienda</li></a>
                 <a href="#" className='ul-li'><li>Contacto</li></a>
                 <a href="#" className='ul-li'><li>Nosotros</li></a>
+                <CartWidget/>
             </ul>
          </nav>
        </header> 
