@@ -2,23 +2,25 @@
   margin: 0;
   padding:0;
   box-sizing: border-box;
+  font-family: sans-serif;
+}
+html{
   font-size: 62.5%;
 }
-
 a{
   text-decoration: none;
   list-style: none;
 }
-p,a,h1{
+p,a{
   color:#ffffff
 }
 
 body{
-  background-color: #404653
+  background-color: #f8f8f8;
 }
 h1 {
-  text-shadow:  #2e2e31;
-  font-size: 8rem;
+  color:#131313;
+  font-size: 5rem;
   font-weight: bold;
   text-align: center;
   margin-top: 2rem;
