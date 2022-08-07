@@ -1,0 +1,5 @@
+.itemsContainer{
+    display: flex;
+    justify-content: space-evenly;
+    flex-basis: 100%;
+}

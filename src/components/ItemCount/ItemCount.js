@@ -2,14 +2,14 @@ import React from 'react'
 import "./ItemCount.css"
 
 function ItemCount({ stock, min, product, addToCart }) {
-    const [amount, setCantidad] = React.useState(1)
+    const [amount, setAmount] = React.useState(1)
     const [text, setText] = React.useState("Elije la cantidad")
     const [classText, setClassText] = React.useState("text-stock")
     function countPlus() {
         if (amount < stock) {
             setText("Elije la cantidad") 
             setClassText("text-stock")
-            setCantidad(amount + 1) 
+            setAmount(amount + 1) 
         }
         else {
             setText(`No hay más de ${stock} unidades en stock`) 
@@ -20,7 +20,7 @@ function ItemCount({ stock, min, product, addToCart }) {
         if (amount > min) {
             setText("Elije la cantidad") 
             setClassText("text-stock")
-            setCantidad(amount - 1)
+            setAmount(amount - 1)
         }
         else {
             setText("No se puede agregar menos de un producto") 
@@ -28,9 +28,8 @@ function ItemCount({ stock, min, product, addToCart }) {
         }
     }
     return (
-        <section className='section-products'>
-            <div className='product-container'>
-                <h2 className='product-name'>{product}</h2>
+       
+            <div className='count-container'>
                 <p className={classText}>{text}</p>
                 <div className='product-display'>
                     <button className='product-buttonCount' onClick={countSub}>-</button>
@@ -39,8 +38,6 @@ function ItemCount({ stock, min, product, addToCart }) {
                 </div>
                 <button onClick={ () => addToCart(amount, product) } className='product-addCart'>Agregar al Carrito</button>
             </div>
-
-        </section>
     )
 }
 

@@ -1,0 +1,18 @@
+.itemImg{
+    width: 80%;
+}
+.itemName{
+    color: #ffffff;
+    font-size: 3rem;
+}
+.itemCategory{
+    font-size: 2rem;
+    font-style: italic;
+    color: #ffffffb8
+}
+.itemPrice{
+    font-size: 2rem;
+}
+.itemStock{
+    display: none;
+}
