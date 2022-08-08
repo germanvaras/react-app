@@ -18,7 +18,9 @@ function Item({img,name,category,price,stock, id}) {
         <h2 className='itemName'>{name}</h2>
         <p className='itemCategory'>{category}</p>
         <p className='itemPrice'>${price}</p>
+        <button className='itemLink'>Ver Detalle</button>
         <ItemCount stock={stock} min={1} addToCart= {addToCart}/>
+        <p className='itemStock'> Stock disponible: {stock} </p>
     </>
   )
 }

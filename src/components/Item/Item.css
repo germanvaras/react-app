@@ -14,5 +14,17 @@
     font-size: 2rem;
 }
 .itemStock{
-    display: none;
+    font-size: 2rem;
+}
+.itemLink{
+    color: #ffffff;
+    font-size: 1.8rem;
+    background-color: transparent;
+    border:none;
+    cursor: pointer;
+    transition: color 0.3s;
+
+}
+.itemLink:hover{
+    color : #61dafb
 }
