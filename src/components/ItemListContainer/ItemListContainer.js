@@ -5,7 +5,9 @@ import './ItemListContainer.css'
 
 function getProducto() {
   return new Promise((resolve => {
-    resolve(ItemData)
+    setTimeout(() => {
+      resolve(ItemData)
+    }, 2000);
   }))
 }
 function ItemListContainer() {

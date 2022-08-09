@@ -33,7 +33,7 @@ function ItemCount({ stock, min, product, addToCart }) {
                 <p className={classText}>{text}</p>
                 <div className='product-display'>
                     <button className='product-buttonCount' onClick={countSub}>-</button>
-                    <h2 className='product-buy'>{amount}</h2>
+                    <h2 className='product-buy datail-buy'>{amount}</h2>
                     <button className='product-buttonCount' onClick={countPlus}>+</button>
                 </div>
                 <button onClick={ () => addToCart(amount, product) } className='product-addCart'>Agregar al Carrito</button>
