@@ -27,8 +27,7 @@ function ItemCount({ stock, min, product, addToCart }) {
             setClassText("text-error")
         }
     }
-    return (
-       
+    return (    
             <div className='count-container'>
                 <p className={classText}>{text}</p>
                 <div className='product-display'>
@@ -36,7 +35,7 @@ function ItemCount({ stock, min, product, addToCart }) {
                     <h2 className='product-buy datail-buy'>{amount}</h2>
                     <button className='product-buttonCount' onClick={countPlus}>+</button>
                 </div>
-                <button onClick={ () => addToCart(amount, product) } className='product-addCart'>Agregar al Carrito</button>
+                <button onClick ={() => addToCart(amount) } className='product-addCart'>Agregar al Carrito</button>
             </div>
     )
 }

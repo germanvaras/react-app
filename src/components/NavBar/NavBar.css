@@ -1,6 +1,6 @@
 .header{
     background-color: #1c1c1c;
-    padding: 2rem;
+    padding: 2rem 0;
     position:sticky;
     top: 0;
   }
@@ -20,4 +20,7 @@
   }
   .ul-li:hover{
     color: #61dafb
+  }
+  .ul-img{
+    width: 12rem;
   }

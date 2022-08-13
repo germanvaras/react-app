@@ -2,7 +2,6 @@ p{
     color: #ffffff;
     font-size: 2rem;
 }
-
 .sectionDetail{
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -31,14 +30,11 @@ p{
     margin: 2rem 2rem 2rem 0;
     padding: 3rem;
     border-radius: .6rem;
-
 }
-
 .detailCategory{
     font-size: 2rem;
     color: #ffffffd5;
-    font-style: italic;
-  
+    font-style: italic;  
 }
 .detailName{
     color: #ffffff;

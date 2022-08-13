@@ -3,7 +3,7 @@ import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 import Swal from 'sweetalert2'
 
-function ItemDetail({ data }) {
+function ItemDetail({data}) {
     function addToCart(amount) {
         Swal.fire({
             position: 'top-end',
@@ -14,7 +14,6 @@ function ItemDetail({ data }) {
         })
     }
     return (
-
         <>
             <section className='sectionDetail'>
                 <div className='imgContainer'>
