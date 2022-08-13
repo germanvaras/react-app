@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom"
 
 function ItemListContainer() {
   const [data, setData] = useState([])
-  const idCategory = useParams().category
+  const idCategory = useParams().idCategory
   function getProducto() {
     return new Promise((resolve => {
       setTimeout(() => {
@@ -16,8 +16,7 @@ function ItemListContainer() {
   }
   useEffect(() => {
     getProducto().then(products => {
-      let itemsFilter = ItemData.filter(element => element.category == idCategory)
-      console.log(ItemData)
+      let itemsFilter = ItemData.filter((element) => element.category === idCategory)
       if (idCategory === undefined) {
         setData(products)
       }
@@ -25,7 +24,8 @@ function ItemListContainer() {
         setData(itemsFilter)
       }
     })
-  }, [])
+  
+  }, [idCategory])
   return (
     <main>
       <>

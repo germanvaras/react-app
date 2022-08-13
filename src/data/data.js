@@ -4,7 +4,7 @@ const ItemData =[
         id: 1, 
         name: "Remera Nube",
         description: "Remera de algodón peinado de color negra, estapanda con la Nube de Dragon Ball en DTG",
-        category: "Animé",
+        category: "anime",
         price: 4000,
         stock: 5
     },
@@ -13,7 +13,7 @@ const ItemData =[
         id: 2, 
         name: "Remera Sharingan",
         description: "Remera de algodón peinado de color negra, estapanda con Sharingan en DTG",
-        category: "Animé",
+        category: "anime",
         price: 4000,
         stock: 5
     },
@@ -22,7 +22,7 @@ const ItemData =[
         id: 3, 
         name: "Remera Pikachu",
         description: "Remera de algodón peinado de color negra, estapanda la silueta de pikachu en DTG",
-        category: "Animé",
+        category: "anime",
         price: 4000,
         stock: 5
     },
@@ -31,7 +31,7 @@ const ItemData =[
         id: 4, 
         name: "Remera Sable",
         description: "Remera de algodón peinado de color negra, estapanda con sables de Star Wars en DTG",
-        category: "StarWars",
+        category: "star-wars",
         price: 4000,
         stock: 10
     },
@@ -40,7 +40,7 @@ const ItemData =[
         id: 5, 
         name: "Remera Dark Maul",
         description: "Remera de algodón peinado de color negra, estapanda con la silueta de Dark Maul en DTG",
-        category: "StarWars",
+        category: "star-wars",
         price: 4000,
         stock: 8
     },
@@ -49,7 +49,7 @@ const ItemData =[
         id: 6, 
         name: "Remera Vadder",
         description: "Remera de algodón peinado de color negra, estapanda con la silueta de Darth Vadder en DTG",
-        category: "StarWars",
+        category: "star-wars",
         price: 4000,
         stock: 7
     },
@@ -58,7 +58,7 @@ const ItemData =[
         id: 7, 
         name: "Remera Inception",
         description: "Remera de algodón peinado de color negra, estapanda con trompo de Inception en DTG",
-        category: "Series-Películas",
+        category: "series-peliculas",
         price: 4000,
         stock: 7
     },
@@ -67,7 +67,7 @@ const ItemData =[
         id: 8, 
         name: "Remera Pato Lucas",
         description: "Remera de algodón peinado de color negra, estapanda con la silueta de Pato Lucas en DTG",
-        category: "Series-Películas",
+        category: "series-peliculas",
         price: 4000,
         stock: 8
     },
@@ -76,7 +76,7 @@ const ItemData =[
         id: 9, 
         name: "Remera Matrix",
         description: "Remera de algodón peinado de color negra, con las posibilidades de Matrix en DTG",
-        category: "Series-Películas",
+        category: "series-peliculas",
         price: 4000,
         stock: 9
     },
@@ -85,7 +85,7 @@ const ItemData =[
         img: "https://res.cloudinary.com/dveku4pvl/image/upload/v1659814694/remera-wolwerine_w4vnoq.jpg",
         name: "Remera Wolwerine",
         description: "Remera de algodón peinado de color negra, estapanda con garras de Wolwerine en DTG",
-        category: "Marvel",
+        category: "marvel",
         price: 4000,
         stock: 12
 
@@ -95,7 +95,7 @@ const ItemData =[
         img: "https://res.cloudinary.com/dveku4pvl/image/upload/v1660416669/remera-wakanda_zljeqe.png",
         name: "Remera Wakanda",
         description: "Remera de algodón peinado de color negra, estapanda con la silueta de Black Panter en DTG",
-        category: "Marvel",
+        category: "marvel",
         price: 4000,
         stock: 9
     },
@@ -104,7 +104,7 @@ const ItemData =[
         img: "https://res.cloudinary.com/dveku4pvl/image/upload/v1660416669/remera-rocket_i7yoge.png",
         name: "Remera Rocket",
         description: "Remera de algodón peinado de color negra, estapanda con la silueta de Rocket en DTG",
-        category: "Marvel",
+        category: "marvel",
         price: 4000,
         stock: 8
     }
