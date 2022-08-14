@@ -5,7 +5,6 @@ p{
 .sectionDetail{
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    height: 100vh;
     background-color: #262626;
 }
 .imgContainer{
@@ -21,7 +20,6 @@ p{
 }
 .detailContainer{
     width: 60%;
-    height: 75%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,5 +45,23 @@ p{
 .detailStock{
     margin: 0 auto;
 }
-
-
+.link-categoria,
+.link-inicio{
+    font-size: 1.8rem;
+    transition: color .3s;
+    margin-top: 5rem;
+}
+.link-categoria:hover,
+.link-inicio:hover{
+    color: #61dafb
+}
+@media (max-width: 1500px) {
+    .sectionDetail{
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+    .detailContainer{
+        width: 100%;
+        padding: 1rem;
+    }
+  }

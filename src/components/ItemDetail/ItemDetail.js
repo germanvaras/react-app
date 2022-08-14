@@ -2,6 +2,7 @@ import React from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 import Swal from 'sweetalert2'
+import {Link} from "react-router-dom"
 
 function ItemDetail({data}) {
     function addToCart(amount) {
@@ -26,6 +27,8 @@ function ItemDetail({data}) {
                     <p className='detailPrice'>${data.price}</p>
                     <ItemCount stock={data.stock} min={1} addToCart={addToCart} />
                     <p className='detailStock'> Stock disponible: {data.stock} </p>
+                    <Link  className='link-categoria' to={`/category/${data.category}`}>Volver a Categoría: {data.category}</Link>
+                    <Link className='link-inicio' to={"/"}>Volver al inicio</Link>
                 </div>
             </section>
         </>

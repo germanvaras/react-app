@@ -1,8 +1,7 @@
 .itemsContainer{
-    padding: 2rem;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(3,1fr);
-    gap: 2rem;
-    flex-basis: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 23%));
+    place-content: center;
+    column-gap: 2rem;
+    padding: 2rem;
 }

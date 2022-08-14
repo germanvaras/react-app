@@ -92,18 +92,18 @@ const ItemData =[
     },
     {
         id: 11, 
-        img: "https://res.cloudinary.com/dveku4pvl/image/upload/v1660416669/remera-wakanda_zljeqe.png",
-        name: "Remera Wakanda",
-        description: "Remera de algodón peinado de color negra, estapanda con la silueta de Black Panter en DTG",
+        img: "https://res.cloudinary.com/dveku4pvl/image/upload/v1660431147/remera-groot_hfbpbs.png",
+        name: "Remera Groot",
+        description: "Remera de algodón peinado de color negra, estapanda con la silueta de Groot en DTG",
         category: "marvel",
         price: 4000,
         stock: 9
     },
     {
         id: 12, 
-        img: "https://res.cloudinary.com/dveku4pvl/image/upload/v1660416669/remera-rocket_i7yoge.png",
-        name: "Remera Rocket",
-        description: "Remera de algodón peinado de color negra, estapanda con la silueta de Rocket en DTG",
+        img: "https://res.cloudinary.com/dveku4pvl/image/upload/v1660436094/remera-wakanda_1_gcmc4n.png",
+        name: "Remera Wakanda",
+        description: "Remera de algodón peinado de color negra, estapanda con la silueta de Black Panter en DTG",
         category: "marvel",
         price: 4000,
         stock: 8
