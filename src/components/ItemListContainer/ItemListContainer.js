@@ -27,7 +27,7 @@ function ItemListContainer() {
   
   }, [idCategory])
   return (
-    <main>
+    <main className='main'>
       <>
         <section className='itemsContainer'>
           <ItemList data={data} />

@@ -9,7 +9,7 @@ function ItemDetailContainer() {
     const idUrl = useParams().id
     function getProducto() {
         return new Promise((resolve => {
-            let findItem = ItemData.find((element) => element.id == idUrl)
+            let findItem = ItemData.find((element) => element.id === Number(idUrl))
             setTimeout(() => {
                 resolve(findItem)
             }, 2000);

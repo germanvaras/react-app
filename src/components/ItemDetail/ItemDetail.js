@@ -15,8 +15,9 @@ function ItemDetail({data}) {
         })
     }
     return (
-        <>
-            <section className='sectionDetail'>
+        <>  
+        <section className='sectionDetail'>
+            <div className='sectionContainer'>
                 <div className='imgContainer'>
                     <img className='detailImg' src={data.img} alt='Foto de remera'></img>
                 </div>
@@ -30,7 +31,8 @@ function ItemDetail({data}) {
                     <Link  className='link-categoria' to={`/category/${data.category}`}>Volver a Categoría: {data.category}</Link>
                     <Link className='link-inicio' to={"/"}>Volver al inicio</Link>
                 </div>
-            </section>
+            </div>
+        </section>
         </>
     )
 }

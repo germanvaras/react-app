@@ -7,36 +7,42 @@ function ItemCount({ stock, min, product, addToCart }) {
     const [classText, setClassText] = React.useState("text-stock")
     function countPlus() {
         if (amount < stock) {
-            setText("Elije la cantidad") 
+            setText("Elije la cantidad")
             setClassText("text-stock")
-            setAmount(amount + 1) 
+            setAmount(amount + 1)
         }
         else {
-            setText(`No hay más de ${stock} unidades en stock`) 
+            setText(`No hay más de ${stock} unidades en stock`)
             setClassText("text-error");
         }
     }
     function countSub() {
         if (amount > min) {
-            setText("Elije la cantidad") 
+            setText("Elije la cantidad")
             setClassText("text-stock")
             setAmount(amount - 1)
         }
         else {
-            setText("No se puede agregar menos de un producto") 
+            setText("No se puede agregar menos de un producto")
             setClassText("text-error")
         }
     }
-    return (    
-            <div className='count-container'>
-                <p className={classText}>{text}</p>
-                <div className='product-display'>
-                    <button className='product-buttonCount' onClick={countSub}>-</button>
+    return (
+        <div className='count-container'>
+            <p className={classText}>{text}</p>
+            <div className='product-display'>
+                <div className='product-amount'>
                     <h2 className='product-buy datail-buy'>{amount}</h2>
-                    <button className='product-buttonCount' onClick={countPlus}>+</button>
                 </div>
-                <button onClick ={() => addToCart(amount) } className='product-addCart'>Agregar al Carrito</button>
+                <div className='products-buttonPlus'>
+                    <button className='product-buttonCount' onClick={countPlus}>+</button>   
+                </div>
+                <div className='products-buttonSub'>
+                    <button className='product-buttonCount' onClick={countSub}>-</button>
+                </div>
             </div>
+            <button onClick={() => addToCart(amount)} className='product-addCart'>Agregar al Carrito</button>
+        </div>
     )
 }
 
