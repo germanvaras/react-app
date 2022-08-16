@@ -1,7 +1,7 @@
 import "./NavBar.css";
 import CartWidget from "../CartWidget/CartWidget";
 import { NavLink } from "react-router-dom";
-function NavBar(idCategory) {
+function NavBar() {
   return (
     <header className='header'>
       <nav className='header-nav'>

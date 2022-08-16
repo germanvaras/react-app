@@ -20,14 +20,15 @@
 .itemLink{
     width: 100%;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2rem;
     background-color: transparent;
     color: #ffffff;
     border:2px solid #ffffff;
     cursor: pointer;
     transition: color, border 0.3s;
     border-radius: .6rem;
-    padding: 1.5rem 3rem;
+    padding: 1rem;
+    font-family: 'Antonio', sans-serif; 
 
 }
 .itemLink:hover{

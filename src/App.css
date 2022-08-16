@@ -2,7 +2,6 @@
   margin: 0;
   padding:0;
   box-sizing: border-box;
-  font-family: sans-serif;
 }
 html{
   font-size: 62.5%;
@@ -10,23 +9,17 @@ html{
 a{
   text-decoration: none;
   list-style: none;
+  color: #ffffff;
 }
-p,a{
-  color:#ffffff
+p,a,h3,input, li{
+  font-family: 'Montserrat', sans-serif;
 }
-
-body{
-  background-color: #f8f8f8;
+h3{
+  font-weight: 600;
 }
-h1 {
-  color:#131313;
-  font-size: 5rem;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 2rem;
-
+h1,h2{
+  font-family: 'Antonio', sans-serif; 
 }
-
 
 
 

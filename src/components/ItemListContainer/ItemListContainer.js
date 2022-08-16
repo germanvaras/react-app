@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom"
 
 function ItemListContainer() {
   const [data, setData] = useState([])
+  const [greeting, setGreeting] = useState("")
   const idCategory = useParams().idCategory
   function getProducto() {
     return new Promise((resolve => {
@@ -18,10 +19,12 @@ function ItemListContainer() {
     getProducto().then(products => {
       let itemsFilter = ItemData.filter((element) => element.category === idCategory)
       if (idCategory === undefined) {
-        setData(products)
+        setData(products) 
+        setGreeting("Todas Nuestras Remeras") 
       }
       else {
-        setData(itemsFilter)
+        setData(itemsFilter)  
+        setGreeting(`${idCategory}`) 
       }
     })
   
@@ -29,6 +32,7 @@ function ItemListContainer() {
   return (
     <main className='main'>
       <>
+        <h1 className='greeting'>{greeting}</h1>
         <section className='itemsContainer'>
           <ItemList data={data} />
         </section>

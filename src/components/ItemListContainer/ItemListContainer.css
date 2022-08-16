@@ -1,10 +1,18 @@
-.itemsContainer{
+.itemsContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(40rem, 23%));
     place-content: center;
     column-gap: 2rem;
     padding: 2rem;
 }
-.main{
- background-color: #f1f1f1
+
+.main {
+    background-color: #f1f1f1
+}
+
+.greeting {
+    font-size: 4rem;
+    text-align: center;
+    padding-top: 2rem ;
+    text-transform: capitalize;
 }
