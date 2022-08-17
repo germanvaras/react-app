@@ -1,7 +1,7 @@
 import React from 'react'
 import "./ItemCount.css"
 
-function ItemCount({ stock, min, product, addToCart }) {
+function ItemCount({ stock, min, addToCart }) {
     const [amount, setAmount] = React.useState(1)
     const [text, setText] = React.useState("Elije la cantidad")
     const [classText, setClassText] = React.useState("text-stock")

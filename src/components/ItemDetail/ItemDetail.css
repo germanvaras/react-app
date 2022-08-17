@@ -62,6 +62,23 @@ p {
 .detailStock{
     color: #ffffffd7
 }
+.showCart{
+    background-color: transparent;
+    color: #ffffff;
+    font-family: 'Antonio', sans-serif; 
+    font-size: 1.8rem;
+    border: solid 2px #ffffff;
+    padding: 1rem ;
+    margin-top: 1rem;
+    border-radius: .6rem;
+    cursor: pointer;
+    transition: all .3s;
+    text-align: center;
+}
+.showCart:hover{
+    color: #61dafb;
+    border: solid 2px #61dafb;
+}
 .link-categoria,
 .link-inicio {
     font-size: 1.8rem;
@@ -101,7 +118,7 @@ p {
     .detailDescription {
         text-align: center;
     }
-    .product-addCart {
+    .product-addCart, .showCart {
         width: 100%;
     }
 }

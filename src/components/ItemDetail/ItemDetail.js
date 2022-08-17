@@ -1,11 +1,13 @@
-import React from 'react'
+import React,{useState} from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 import Swal from 'sweetalert2'
 import {Link} from "react-router-dom"
 
 function ItemDetail({data}) {
+    const[countCart, setCountCart] = useState(0)
     function addToCart(amount) {
+        setCountCart(amount)
         Swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -26,7 +28,9 @@ function ItemDetail({data}) {
                     <h2 className='detailName'>{data.name}</h2>
                     <p className='detailDescription'>{data.description}</p>
                     <p className='detailPrice'>${data.price}</p>
-                    <ItemCount stock={data.stock} min={1} addToCart={addToCart} />
+                    {countCart === 0 ? 
+                    <ItemCount stock={data.stock} min={1} addToCart={addToCart} /> : 
+                    <Link className='showCart' to={"/cart"}>Ver Carrito</Link>}
                     <p className='detailStock'> Stock disponible: {data.stock} </p>
                     <Link  className='link-categoria' to={`/category/${data.category}`}>Volver a Categoría: {data.category}</Link>
                     <Link className='link-inicio' to={"/"}>Volver al inicio</Link>
