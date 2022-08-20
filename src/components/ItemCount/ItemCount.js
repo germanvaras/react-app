@@ -1,7 +1,7 @@
 import React from 'react'
 import "./ItemCount.css"
 
-function ItemCount({ stock, min, addToCart }) {
+function ItemCount({ stock, min, onAdd }) {
     const [amount, setAmount] = React.useState(1)
     const [text, setText] = React.useState("Elije la cantidad")
     const [classText, setClassText] = React.useState("text-stock")
@@ -41,7 +41,7 @@ function ItemCount({ stock, min, addToCart }) {
                     <button className='product-buttonCount' onClick={countSub}>-</button>
                 </div>
             </div>
-            <button onClick={() => addToCart(amount)} className='product-addCart'>Agregar al Carrito</button>
+            <button onClick={() => onAdd(amount)} className='product-addCart'>Agregar al Carrito</button>
         </div>
     )
 }
