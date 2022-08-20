@@ -35,10 +35,15 @@ export function CartProvider({ children }) {
         console.log(copyCart)
     }
     // funcion vaciar al carrito
-    function removeAll(){
+    function removeAll() {
         copyCart = []
         setCart(copyCart)
         console.log(copyCart)
+    }
+    function totalAmount() {
+        let amountCart = 0;
+        cart.map(i => amountCart += i.amount);
+        return amountCart;
     }
     // funciones auxiliares
     // funcion para revisar si existe el item
@@ -46,11 +51,11 @@ export function CartProvider({ children }) {
         return (copyCart.some(itemInCart => itemInCart.id === Number(id)))
     }
     // funcion para buscar un item en base a su id
-    function findItem(id){
+    function findItem(id) {
         return (copyCart.findIndex(item => item.id === Number(id)))
     }
     return (
-        <cartContext.Provider value={{ cart, addToCart, removeItem, removeAll }}>
+        <cartContext.Provider value={{ cart, addToCart, removeItem, removeAll, totalAmount }}>
             {children}
         </cartContext.Provider>
     );
