@@ -4,7 +4,6 @@ import { createContext, useState } from "react";
 // 3. Definimos los componentes que van a acceder al context (Consumers)
 // 4. Damos a los componentes acceso al context con el hook useContext()
 // 5. Los componentes consumers podrán acceder y "subscribirse" al "value" del context
-
 export const cartContext = createContext();
 
 export function CartProvider({ children }) {
@@ -40,10 +39,17 @@ export function CartProvider({ children }) {
         setCart(copyCart)
         console.log(copyCart)
     }
+    // funcion para sacar el total de productos agregados al carrito aunque esten repetidos
     function totalAmount() {
         let amountCart = 0;
-        cart.map(i => amountCart += i.amount);
+        cart.map(index => amountCart += index.amount);
         return amountCart;
+    }
+    // funcion que calcula el precio total
+    function totalPrice(){
+        let total = 0;
+        cart.map ((index) => total += index.price * index.amount);
+        return total;
     }
     // funciones auxiliares
     // funcion para revisar si existe el item
@@ -55,7 +61,7 @@ export function CartProvider({ children }) {
         return (copyCart.findIndex(item => item.id === Number(id)))
     }
     return (
-        <cartContext.Provider value={{ cart, addToCart, removeItem, removeAll, totalAmount }}>
+        <cartContext.Provider value={{ cart, addToCart, removeItem, removeAll, totalAmount, totalPrice }}>
             {children}
         </cartContext.Provider>
     );

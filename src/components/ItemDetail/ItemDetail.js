@@ -35,7 +35,7 @@ function ItemDetail({ data }) {
                         <p className='detailPrice'>${data.price}</p>
                         {countCart === 0 ?
                             <ItemCount stock={data.stock} min={1} onAdd={onAdd} /> :
-                            <Link to={"/cart"}>Ver Carrito</Link>}
+                            <Link  className="showCart" to={"/cart"}>Ver Carrito</Link>}
                         <p className='detailStock'> Stock disponible: {data.stock} </p>
                         <Link className='link-categoria' to={`/category/${data.category}`}>Volver a Categoría: {data.category}</Link>
                         <Link className='link-inicio' to={"/"}>Volver al inicio</Link>
