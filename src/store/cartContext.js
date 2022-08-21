@@ -21,6 +21,7 @@ export function CartProvider({ children }) {
         // si no existe pushearlo al carrito
         else {
             copyCart.push({ ...data, amount });
+            data.stock-= amount
             setCart(copyCart)
             console.log(copyCart)
         }
@@ -58,7 +59,7 @@ export function CartProvider({ children }) {
     }
     // funcion para buscar un item en base a su id
     function findItem(id) {
-        return (copyCart.findIndex(item => item.id === Number(id)))
+        return (copyCart.find(item => item.id === Number(id)))
     }
     return (
         <cartContext.Provider value={{ cart, addToCart, removeItem, removeAll, totalAmount, totalPrice }}>

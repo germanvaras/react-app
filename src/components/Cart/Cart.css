@@ -1,3 +1,65 @@
-.linkCart{
-    color:#000000;
+.linkCart {
+    color: #000000
+}
+
+.mainCart {
+    display: grid;
+    grid-template-columns: 40% 55%;
+    column-gap: 2rem;
+    padding: 2rem;
+}
+
+.cartDeleteAll , .cartResumeButtons{
+    background-color: transparent;
+    color: #000000;
+    font-family: 'Antonio', sans-serif;
+    font-size: 1.8rem;
+    border: solid 2px #000000;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: .6rem;
+    cursor: pointer;
+    transition: all .3s;
+    text-align: center;
+}
+.cartDeleteAll:hover {
+    color: #fb6161;
+    border: solid 2px #fb6161;
+}
+.cartResumeButtons:hover{
+    background-color: #000000;
+    color: #ffffff;
+}
+.sectionCartItem {
+    display: flex;
+    flex-direction: column;  
+}
+.cartResume{
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    row-gap: 3rem;
+    padding: 4rem 2rem;
+    border-radius: .6rem;
+    box-shadow: 0px 5px 15px 0px rgba(74, 74, 74, 0.51); 
+}
+
+.titleResume{
+    font-size: 2.5rem;
+}
+.resume{
+    font-size: 1.8rem;
+    color: #000000d6;
+}
+.totalResume{
+    font-size: 2.3rem;
+}
+.paymentResume{
+    max-width: 75%;
+}
+.containerButtonsResume{
+    width: 100%;
+    display: flex;
+    column-gap: 2rem;
 }
