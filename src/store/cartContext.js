@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import Swal from 'sweetalert2' 
 // 1. Inicializamos el Context con React.createContext()
 // 2. Creamos un Provider y le damos un "value"
 // 3. Definimos los componentes que van a acceder al context (Consumers)
@@ -14,9 +15,28 @@ export function CartProvider({ children }) {
         // si el producto extiste solo aumentar la cantidad
         if (isInCart(data.id)) {
             const itemIndex = findItem(data.id)
-            copyCart[itemIndex].amount += amount;
-            setCart(copyCart)
-            console.log(copyCart)
+            if (data.stock > 0){
+                itemIndex.amount += amount;
+                data.stock-= amount
+                setCart(copyCart)
+                console.log(copyCart)
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: `Has agregado ${amount}, de ${data.name} al carrito`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+            else{
+                Swal.fire({
+                    position: 'top',
+                    icon: 'error',
+                    title: `No se puede agregar más de ${itemIndex.stock}, de ${itemIndex.name} ya que no hay más en stock`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
         }
         // si no existe pushearlo al carrito
         else {
@@ -24,6 +44,14 @@ export function CartProvider({ children }) {
             data.stock-= amount
             setCart(copyCart)
             console.log(copyCart)
+            console.log(copyCart)
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: `Has agregado ${amount}, de ${data.name} al carrito`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
         }
     }
     // funcion para remover un item por su id

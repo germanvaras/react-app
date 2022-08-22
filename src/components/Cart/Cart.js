@@ -10,7 +10,6 @@ function Cart(id) {
     function removeItemCart() {
         removeItem(id)
     }
-
     if (cart.length === 0) {
         return (
             <div>
@@ -30,10 +29,10 @@ function Cart(id) {
                                 img={item.img}
                                 name={item.name}
                                 price={item.price * item.amount}
-                                amount={item.amount}
+                                amount={item.amount }
+                                stock={item.stock - item.amount}
                                 removeItemCart={removeItemCart}
                             />
-
                         )
                     })}
                     <button className="cartDeleteAll" onClick={removeAll}> Vaciar Carrito </button>
@@ -50,7 +49,6 @@ function Cart(id) {
                         <Link to={"/checkout"}><button className="cartResumeButtons">Finalizar Compra </button></Link>
                         </div>
                         <img  className="paymentResume" src="https://res.cloudinary.com/dveku4pvl/image/upload/v1661110744/mercadopago_logos1_rld5ya.jpg" alt="Medios de Pago"></img>
-    
                 </section>
             </main>
         )

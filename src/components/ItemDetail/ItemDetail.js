@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
-import Swal from 'sweetalert2'
 import { Link } from "react-router-dom"
 import { useContext } from "react";
 import { cartContext } from "../../store/cartContext";
@@ -11,15 +10,8 @@ function ItemDetail({ data }) {
     const [countCart, setCountCart] = useState(0)
     function onAdd(amount) {
         addToCart(data, amount);
-        // set que tiene en cuenta la cantidad del contador en caso de que sea mayor a 1 cuando agregamos un producto al carrito cambia el boton de agregar al carrito, por ver al carrito
+        // set que tiene en cuenta la cantidad del contador en caso de que sea mayor a 1 cuando agregamos un producto al carrito cambia el boton de agregar al carrito, por ver al carrito.
         setCountCart(amount)
-        Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: `Has agregado ${amount}, de ${data.name} al carrito`,
-            showConfirmButton: false,
-            timer: 1500
-        })
     }
     return (
         <>
@@ -35,7 +27,11 @@ function ItemDetail({ data }) {
                         <p className='detailPrice'>${data.price}</p>
                         {countCart === 0 ?
                             <ItemCount stock={data.stock} min={1} onAdd={onAdd} /> :
-                            <Link  className="showCart" to={"/cart"}>Ver Carrito</Link>}
+                            <>
+                            <ItemCount stock={data.stock} min={1} onAdd={onAdd} />
+                            <Link  className="showCart" to={"/cart"}>Ver Carrito</Link>
+                            </>
+                            }
                         <p className='detailStock'> Stock disponible: {data.stock} </p>
                         <Link className='link-categoria' to={`/category/${data.category}`}>Volver a Categoría: {data.category}</Link>
                         <Link className='link-inicio' to={"/"}>Volver al inicio</Link>
