@@ -3,9 +3,9 @@ import ItemData from '../../data/data';
 import ItemDetail from "../ItemDetail/ItemDetail";
 import './ItemDetailContainer.css'
 import { useParams } from "react-router-dom"
-
+import SpinerLoad from '../SpinerLoad/SpinerLoad';
 function ItemDetailContainer() {
-    const [data, setData] = useState({})
+    const [data, setData] = useState([])
     const idUrl = useParams().id
     useEffect(() => {
         function getProducto() {
@@ -20,10 +20,19 @@ function ItemDetailContainer() {
             setData(product)
         })
     }, [idUrl])
+
     return (
-        <main>
-            <ItemDetail data={data} />
-        </main>
+        <>
+            { data.length === 0 ?
+                <main className="spinnerMain">
+                    <SpinerLoad />
+                </main>
+                :
+                <main>
+                    <ItemDetail data={data} />
+                </main>
+            }
+        </>
     )
 }
 export default ItemDetailContainer

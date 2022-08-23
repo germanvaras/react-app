@@ -12,7 +12,7 @@ function CartItem({ img, name, price, amount, removeItemCart, id, stock }) {
         <h2 className='cartName'>{name}</h2>
         <h3 className='cartAmount'>Cantidad: {amount}</h3>
         <h3 className='cartSubtotal'> Subtotal: ${price}</h3>
-        <ItemCount min={1} stock = {stock}/>
+        <h3 className='cartStock'>Stock Disponible: {stock}</h3>
         <FontAwesomeIcon className='cartDeleteItem' onClick={() => removeItemCart(id)} icon={faTrashCan}></FontAwesomeIcon>
       </div>
     </div>

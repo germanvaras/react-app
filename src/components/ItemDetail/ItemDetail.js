@@ -13,6 +13,7 @@ function ItemDetail({ data }) {
         // set que tiene en cuenta la cantidad del contador en caso de que sea mayor a 1 cuando agregamos un producto al carrito cambia el boton de agregar al carrito, por ver al carrito.
         setCountCart(amount)
     }
+
     return (
         <>
             <section className='sectionDetail'>
@@ -26,9 +27,9 @@ function ItemDetail({ data }) {
                         <p className='detailDescription'>{data.description}</p>
                         <p className='detailPrice'>${data.price}</p>
                         {countCart === 0 ?
-                            <ItemCount stock={data.stock} min={1} onAdd={onAdd} /> :
+                            <ItemCount stock={data.stock} min={1} onAdd={onAdd}/> :
                             <>
-                            <ItemCount stock={data.stock} min={1} onAdd={onAdd} />
+                            <ItemCount stock={data.stock} min={1} onAdd={onAdd}/>
                             <Link  className="showCart" to={"/cart"}>Ver Carrito</Link>
                             </>
                             }

@@ -28,7 +28,8 @@
 
 .cartAmount,
 .cartSubtotal,
-.cartDeleteItem {
+.cartDeleteItem,
+.cartStock {
     font-size: 1.8rem;
 }
 

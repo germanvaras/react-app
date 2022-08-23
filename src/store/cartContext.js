@@ -5,8 +5,8 @@ import Swal from 'sweetalert2'
 // 3. Definimos los componentes que van a acceder al context (Consumers)
 // 4. Damos a los componentes acceso al context con el hook useContext()
 // 5. Los componentes consumers podrán acceder y "subscribirse" al "value" del context
-export const cartContext = createContext();
 
+export const cartContext = createContext();
 export function CartProvider({ children }) {
     const [cart, setCart] = useState([]);
     let copyCart = [...cart];

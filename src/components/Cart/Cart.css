@@ -9,7 +9,8 @@
     padding: 2rem;
 }
 
-.cartDeleteAll , .cartResumeButtons{
+.cartDeleteAll,
+.cartResumeButtons {
     background-color: transparent;
     color: #000000;
     font-family: 'Antonio', sans-serif;
@@ -22,19 +23,23 @@
     transition: all .3s;
     text-align: center;
 }
+
 .cartDeleteAll:hover {
     color: #fb6161;
     border: solid 2px #fb6161;
 }
-.cartResumeButtons:hover{
+
+.cartResumeButtons:hover {
     background-color: #000000;
     color: #ffffff;
 }
+
 .sectionCartItem {
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
 }
-.cartResume{
+
+.cartResume {
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -42,24 +47,49 @@
     row-gap: 3rem;
     padding: 4rem 2rem;
     border-radius: .6rem;
-    box-shadow: 0px 5px 15px 0px rgba(74, 74, 74, 0.51); 
+    box-shadow: 0px 5px 15px 0px rgba(74, 74, 74, 0.51);
 }
 
-.titleResume{
+.titleResume, h1 {
     font-size: 2.5rem;
 }
-.resume{
+
+.resume {
     font-size: 1.8rem;
     color: #000000d6;
 }
-.totalResume{
+
+.totalResume {
     font-size: 2.3rem;
 }
-.paymentResume{
+
+.paymentResume {
     max-width: 75%;
 }
-.containerButtonsResume{
+
+.containerButtonsResume {
     width: 100%;
     display: flex;
     column-gap: 2rem;
+}
+.emptyCartContainer {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 3rem;
+    
+}
+.titleEmptyContainer {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+.emptyCart {
+    font-size: 20rem;
+    color: #1c1c1c;
+}
+.emptyCartFace{
+    font-size: 5rem;
 }

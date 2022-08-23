@@ -21,6 +21,7 @@ function ItemCount({ stock, min, onAdd }) {
             setAmount(amount)
         }
     }
+ 
     return (
         <div className='count-container'>
             <p className='text-stock'>Elije la Cantidad</p>
@@ -33,6 +34,7 @@ function ItemCount({ stock, min, onAdd }) {
                 </div>
                 <div className='products-buttonSub'>
                     <button className='product-buttonCount' onClick={countSub}>-</button>
+                
                 </div>
             </div>
             <button onClick={() => onAdd(amount)} className='product-addCart'>Agregar al Carrito</button>
