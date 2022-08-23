@@ -1,10 +1,8 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
-import ItemCount from '../ItemCount/ItemCount'
 import "./CartItem.css"
-
-function CartItem({ img, name, price, amount, removeItemCart, id, stock }) {
+function CartItem({ img, name, price, amount, removeItemCart, plusItemCart,subItemCart, id, stock }) {
   return (
     <div className='itemCart-container'>
       <img className='cartImg' src={img} alt={`imagen de: ${name}`}></img>
@@ -13,6 +11,9 @@ function CartItem({ img, name, price, amount, removeItemCart, id, stock }) {
         <h3 className='cartAmount'>Cantidad: {amount}</h3>
         <h3 className='cartSubtotal'> Subtotal: ${price}</h3>
         <h3 className='cartStock'>Stock Disponible: {stock}</h3>
+        <button onClick={() =>subItemCart(id)}>-</button>
+        <p>{amount}</p>
+        <button onClick={() => plusItemCart(id) }>+</button>
         <FontAwesomeIcon className='cartDeleteItem' onClick={() => removeItemCart(id)} icon={faTrashCan}></FontAwesomeIcon>
       </div>
     </div>

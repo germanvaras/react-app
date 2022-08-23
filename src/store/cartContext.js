@@ -17,9 +17,9 @@ export function CartProvider({ children }) {
             const itemIndex = findItem(data.id)
             if (data.stock > 0){
                 itemIndex.amount += amount;
-                data.stock-= amount
+                data.stock -= amount
                 setCart(copyCart)
-                console.log(copyCart)
+                // console.log(copyCart)
                 Swal.fire({
                     position: 'top',
                     icon: 'success',
@@ -43,8 +43,7 @@ export function CartProvider({ children }) {
             copyCart.push({ ...data, amount });
             data.stock-= amount
             setCart(copyCart)
-            console.log(copyCart)
-            console.log(copyCart)
+            // console.log(copyCart)
                 Swal.fire({
                     position: 'top',
                     icon: 'success',
@@ -60,7 +59,7 @@ export function CartProvider({ children }) {
         const indexItem = copyCart.indexOf(itemRemove)
         copyCart.splice(indexItem, 1)
         setCart(copyCart)
-        console.log(copyCart)
+    
     }
     // funcion vaciar al carrito
     function removeAll() {
@@ -71,26 +70,38 @@ export function CartProvider({ children }) {
     // funcion para sacar el total de productos agregados al carrito aunque esten repetidos
     function totalAmount() {
         let amountCart = 0;
-        cart.map(index => amountCart += index.amount);
+        copyCart.map(index => amountCart += index.amount);
         return amountCart;
     }
     // funcion que calcula el precio total
     function totalPrice(){
         let total = 0;
-        cart.map ((index) => total += index.price * index.amount);
+        copyCart.map ((index) => total += index.price * index.amount);
         return total;
     }
+    function plusCart(data){
+        const plusInCart = findItem(data.id)
+        plusInCart.amount += data.amount;
+        data.stock-= data.amount
+        setCart(copyCart)
+    }
+    function subCart(data, amount){
+        const subInCart = findItem(data.id)
+       
+    }
+
+    
     // funciones auxiliares
     // funcion para revisar si existe el item
     function isInCart(id) {
-        return (copyCart.some(itemInCart => itemInCart.id === Number(id)))
+        return (copyCart.some(itemInCart => itemInCart.id === id ))
     }
     // funcion para buscar un item en base a su id
     function findItem(id) {
-        return (copyCart.find(item => item.id === Number(id)))
+        return (copyCart.find(item => item.id === id))
     }
     return (
-        <cartContext.Provider value={{ cart, addToCart, removeItem, removeAll, totalAmount, totalPrice }}>
+        <cartContext.Provider value={{ cart, addToCart, removeItem, removeAll, totalAmount, totalPrice, plusCart, subCart  }}>
             {children}
         </cartContext.Provider>
     );

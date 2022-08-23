@@ -9,19 +9,25 @@ import { faCartArrowDown, faFaceSadTear } from '@fortawesome/free-solid-svg-icon
 import "./Cart.css"
 
 function Cart(id) {
-    const { cart, removeItem, removeAll, totalPrice, totalAmount } = useContext(cartContext);
+    const { cart, removeItem, removeAll, totalPrice, totalAmount, plusCart, subCart } = useContext(cartContext);
     function removeItemCart() {
         removeItem(id)
+    }
+    function plusItemCart() {
+        plusCart(id)
+    }
+    function subItemCart() {
+        subCart(id)
     }
     if (cart.length === 0) {
         return (
             <main>
                 <div className="emptyCartContainer">
-                    <div className ="titleEmptyContainer">
-                    <h1>Carrito Vacío</h1>
-                    <FontAwesomeIcon  className="emptyCartFace" icon={faFaceSadTear}/>   
+                    <div className="titleEmptyContainer">
+                        <h1>Carrito Vacío</h1>
+                        <FontAwesomeIcon className="emptyCartFace" icon={faFaceSadTear} />
                     </div>
-                    <span><FontAwesomeIcon  className="emptyCart" icon={faCartArrowDown}/></span>
+                    <span><FontAwesomeIcon className="emptyCart" icon={faCartArrowDown} /></span>
                     <Link to={"/"}><button className="cartResumeButtons">Ir a Comprar </button></Link>
                 </div>
             </main>
@@ -41,6 +47,8 @@ function Cart(id) {
                                 amount={item.amount}
                                 stock={item.stock - item.amount}
                                 removeItemCart={removeItemCart}
+                                plusItemCart={plusItemCart}
+                                subItemCart={subItemCart}
                             />
                         )
                     })}
