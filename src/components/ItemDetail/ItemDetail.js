@@ -4,12 +4,20 @@ import './ItemDetail.css'
 import { Link } from "react-router-dom"
 import { useContext } from "react";
 import { cartContext } from "../../store/cartContext";
+import Swal from 'sweetalert2' 
 
 function ItemDetail({ data }) {
     const { addToCart } = useContext(cartContext);
     const [countCart, setCountCart] = useState(0)
     function onAdd(amount) {
         addToCart(data, amount);
+        Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: `Has agregado ${amount}, de ${data.name} al carrito`,
+            showConfirmButton: false,
+            timer: 1500
+        })
         // set que tiene en cuenta la cantidad del contador en caso de que sea mayor a 1 cuando agregamos un producto al carrito cambia el boton de agregar al carrito, por ver al carrito.
         setCountCart(amount)
     }

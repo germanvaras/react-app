@@ -14,24 +14,16 @@ export function CartProvider({ children }) {
     function addToCart(data, amount) {
         // si el producto extiste solo aumentar la cantidad
         if (isInCart(data.id)) {
-            const itemIndex = findItem(data.id)
             if (data.stock > 0){
-                itemIndex.amount += amount;
-                data.stock -= amount
+                data.amount += amount;
+                data.stock -= amount 
                 setCart(copyCart)
-                Swal.fire({
-                    position: 'top',
-                    icon: 'success',
-                    title: `Has agregado ${amount}, de ${data.name} al carrito`,
-                    showConfirmButton: false,
-                    timer: 1500
-                })
             }
             else{
                 Swal.fire({
                     position: 'top',
                     icon: 'error',
-                    title: `No se puede agregar más de ${itemIndex.stock}, de ${itemIndex.name} ya que no hay más en stock`,
+                    title: `No se puede agregar más de ${data.stock}, de ${data.name} ya que no hay más en stock`,
                     showConfirmButton: false,
                     timer: 1500
                 })
@@ -39,16 +31,9 @@ export function CartProvider({ children }) {
         }
         // si no existe pushearlo al carrito
         else {
-            copyCart.push({ ...data, amount });
             data.stock-= amount
+            copyCart.push({ ...data, amount });
             setCart(copyCart)
-                Swal.fire({
-                    position: 'top',
-                    icon: 'success',
-                    title: `Has agregado ${amount}, de ${data.name} al carrito`,
-                    showConfirmButton: false,
-                    timer: 1500
-                })
         }
     }
     // funcion para remover un item por su id
@@ -85,14 +70,18 @@ export function CartProvider({ children }) {
         return (copyCart.find(item => item.id === id))
     }
     function plusItemsCart(id){
-        cart[id].amount += 1
-        cart[id].stock -= 1
-        setCart(copyCart)
+        if( copyCart[id].stock !== 0){
+            copyCart[id].amount += 1
+            copyCart[id].stock -= 1
+            setCart(copyCart)    
+        }
     }
     function subItemsCart(id){
-        cart[id].amount -= 1
-        cart[id].stock += 1
-        setCart(copyCart)
+        if(copyCart[id].amount !== 1){
+            copyCart[id].amount -= 1
+            copyCart[id].stock += 1
+            setCart(copyCart)   
+        }
     }
     return (
         <cartContext.Provider value={{ cart, addToCart, removeItem, removeAll, totalAmount, totalPrice, plusItemsCart, subItemsCart }}>

@@ -32,7 +32,9 @@
 .cartStock {
     font-size: 1.8rem;
 }
-
+.cartQuestion{
+    font-size: 1.5rem;
+}
 .cartDeleteItem {
     cursor: pointer;
     transition: color .3s;
@@ -40,4 +42,24 @@
 
 .cartDeleteItem:hover {
     color: #fb6161
+}
+.buttonsContaier{
+    display: flex;
+    align-items: center;
+    gap: 1rem
+}
+.products-buttons {
+    background-color: transparent;
+    border: solid 2px #ffffff;
+    border-radius: .6rem;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: .8rem;
+    margin: .2rem 0;
+    transition: all .3s;
+    color: #ffffff;
+}
+.products-buttons:hover{
+    color: #61dafb;
+    border: solid 2px #61dafb;
 }

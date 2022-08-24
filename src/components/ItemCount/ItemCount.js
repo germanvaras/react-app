@@ -1,24 +1,25 @@
 import React, { useState } from 'react'
-import { useContext } from 'react'
-import { cartContext } from '../../store/cartContext'
+// import { useContext } from 'react'
+// import { cartContext } from '../../store/cartContext'
 import "./ItemCount.css"
-function ItemCount({ stock, min, onAdd, id }) {
-    const { plusItemsCart, subItemsCart } = useContext(cartContext)
+function ItemCount({ stock, min, onAdd}) {
+    // const {plusItemsCart, subItemsCart} = useContext(cartContext)
     const [amount, setAmount] = useState(1)
     function countPlus() {
         if (amount < stock) {
             setAmount(amount + 1)
-            if (!(!!onAdd)) {
-                plusItemsCart(id)
-            }
+            // if (!(!!onAdd)){
+            //     plusItemsCart(id)
+            // }
         }
     }
     function countSub() {
         if (amount > min) {
             setAmount(amount - 1)
-            if (!(!!onAdd)) {
-                subItemsCart(id)
-            }
+        //         if (!(!!onAdd)){
+        //         subItemsCart(id)
+        //     }
+        // 
         }
     }
     return (
@@ -33,12 +34,11 @@ function ItemCount({ stock, min, onAdd, id }) {
                 </div>
                 <div className='products-buttonSub'>
                     <button className='product-buttonCount' onClick={countSub}>-</button>
-
+                
                 </div>
             </div>
-            {
-                onAdd ? <button onClick={() => onAdd(amount)} className='product-addCart'>Agregar al Carrito</button> : null
-            }
+            <button onClick={() => onAdd(amount)} className='product-addCart'>Agregar al Carrito</button> 
+            
         </div>
     )
 }
