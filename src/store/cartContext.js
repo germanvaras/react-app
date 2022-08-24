@@ -19,7 +19,6 @@ export function CartProvider({ children }) {
                 itemIndex.amount += amount;
                 data.stock -= amount
                 setCart(copyCart)
-                // console.log(copyCart)
                 Swal.fire({
                     position: 'top',
                     icon: 'success',
@@ -43,7 +42,6 @@ export function CartProvider({ children }) {
             copyCart.push({ ...data, amount });
             data.stock-= amount
             setCart(copyCart)
-            // console.log(copyCart)
                 Swal.fire({
                     position: 'top',
                     icon: 'success',
@@ -54,18 +52,16 @@ export function CartProvider({ children }) {
         }
     }
     // funcion para remover un item por su id
-    function removeItem(data) {
-        const itemRemove = findItem(data.id)
+    function removeItem(id) {
+        const itemRemove = findItem(id)
         const indexItem = copyCart.indexOf(itemRemove)
         copyCart.splice(indexItem, 1)
         setCart(copyCart)
-    
     }
     // funcion vaciar al carrito
     function removeAll() {
         copyCart = []
         setCart(copyCart)
-        console.log(copyCart)
     }
     // funcion para sacar el total de productos agregados al carrito aunque esten repetidos
     function totalAmount() {
@@ -79,18 +75,6 @@ export function CartProvider({ children }) {
         copyCart.map ((index) => total += index.price * index.amount);
         return total;
     }
-    function plusCart(data){
-        const plusInCart = findItem(data.id)
-        plusInCart.amount += data.amount;
-        data.stock-= data.amount
-        setCart(copyCart)
-    }
-    function subCart(data, amount){
-        const subInCart = findItem(data.id)
-       
-    }
-
-    
     // funciones auxiliares
     // funcion para revisar si existe el item
     function isInCart(id) {
@@ -100,8 +84,18 @@ export function CartProvider({ children }) {
     function findItem(id) {
         return (copyCart.find(item => item.id === id))
     }
+    function plusItemsCart(id){
+        cart[id].amount += 1
+        cart[id].stock -= 1
+        setCart(copyCart)
+    }
+    function subItemsCart(id){
+        cart[id].amount -= 1
+        cart[id].stock += 1
+        setCart(copyCart)
+    }
     return (
-        <cartContext.Provider value={{ cart, addToCart, removeItem, removeAll, totalAmount, totalPrice, plusCart, subCart  }}>
+        <cartContext.Provider value={{ cart, addToCart, removeItem, removeAll, totalAmount, totalPrice, plusItemsCart, subItemsCart }}>
             {children}
         </cartContext.Provider>
     );

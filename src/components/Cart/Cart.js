@@ -1,24 +1,23 @@
 import CartItem from "../CartItems/CartItem"
 import ItemData from "../../data/data";
-import { useContext } from 'react'
+import { useContext, useEffect} from 'react'
 import { cartContext } from '../../store/cartContext';
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartArrowDown, faFaceSadTear } from '@fortawesome/free-solid-svg-icons'
 
+
 import "./Cart.css"
 
-function Cart(id) {
-    const { cart, removeItem, removeAll, totalPrice, totalAmount, plusCart, subCart } = useContext(cartContext);
-    function removeItemCart() {
+function Cart() {
+    const { cart, removeItem, removeAll, totalPrice, totalAmount } = useContext(cartContext);
+    function removeItemCart(id) {
         removeItem(id)
     }
-    function plusItemCart() {
-        plusCart(id)
-    }
-    function subItemCart() {
-        subCart(id)
-    }
+useEffect(()=>{
+    console.log("cambie")
+}, [cart]) 
+
     if (cart.length === 0) {
         return (
             <main>
@@ -37,18 +36,17 @@ function Cart(id) {
         return (
             <main className="mainCart">
                 <section className="sectionCartItem">
-                    {cart.map((item) => {
+                    {cart.map((item, index) => {
                         return (
                             <CartItem
                                 key={item.id + item.name}
+                                id={index}
                                 img={item.img}
                                 name={item.name}
                                 price={item.price * item.amount}
                                 amount={item.amount}
                                 stock={item.stock - item.amount}
                                 removeItemCart={removeItemCart}
-                                plusItemCart={plusItemCart}
-                                subItemCart={subItemCart}
                             />
                         )
                     })}
