@@ -1,5 +1,4 @@
 import CartItem from "../CartItems/CartItem"
-import ItemData from "../../data/data";
 import { useContext, useEffect } from 'react'
 import { cartContext } from '../../store/cartContext';
 import { Link } from "react-router-dom"
@@ -63,7 +62,7 @@ function Cart() {
                 </section>
                 <section className="cartResume">
                     <h1 className="titleResume">Resumen del Pedido</h1>
-                    <h3 className="resume">Cantidad de Remeras: {totalAmount()} x ${ItemData[0].price}</h3>
+                    <h3 className="resume">Cantidad de Remeras: {totalAmount()}</h3>
                     <h3 className="resume">Subtotal: ${totalPrice()}</h3>
                     <h3 className="resume">IVA(21%): ${totalPrice() * 0.21}</h3>
                     <h3 className="resume">Envío: Gratuito</h3>

@@ -1,34 +1,54 @@
 import React, { useEffect, useState } from 'react'
-import ItemData from '../../data/data';
 import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css'
 import { useParams } from "react-router-dom"
 import SpinerLoad from '../SpinerLoad/SpinerLoad';
+import firestoreDB from '../../services/firebase';
+import { getDocs, collection, query, where} from 'firebase/firestore';
 
 function ItemListContainer() {
   const [data, setData] = useState([])
   const [greeting, setGreeting] = useState("")
   const idCategory = useParams().idCategory
 
+  function getProducts() {
+    return new Promise((resolve => {
+      const productsCollections = collection(firestoreDB, "products")
+      getDocs(productsCollections).then(snapshot => {
+        const docsData = snapshot.docs.map(doc => { return { ...doc.data(), id: doc.id } })
+        resolve(docsData)
+        console.log(docsData)
+      })
+    }))
+  }
+  function getItemsFromDBbyIdCategory(idCategory) {
+    return new Promise((resolve) => {
+      const productsCollection = collection(firestoreDB, "products");
+      const queryProducts = query(productsCollection, where("category", "==", idCategory))
+      getDocs(queryProducts).then(snapshot => {
+        const docsData = snapshot.docs.map(doc => {
+          return { ...doc.data(), id: doc.id }
+        });
+        resolve(docsData);
+        console.log(docsData)
+      });
+    });
+  };
   useEffect(() => {
-    function getProducto() {
-      return new Promise((resolve => {
-        setTimeout(() => {
-          resolve(ItemData)
-        }, 2000);
-      }))
+    if (idCategory) {
+      getItemsFromDBbyIdCategory(idCategory).then((resolve) => {
+        setData(resolve)
+        setGreeting(idCategory)
+        
+      });
+
+    } else {
+      getProducts().then((resolve) =>{
+        setData(resolve)
+        setGreeting("Todos Nuestras Remeras")
+        
+      });
     }
-    getProducto().then(products => {
-      let itemsFilter = ItemData.filter((element) => element.category === idCategory)
-      if (idCategory === undefined) {
-        setData(products)
-        setGreeting("Todas Nuestras Remeras")
-      }
-      else {
-        setData(itemsFilter)
-        setGreeting(`${idCategory}`)
-      }
-    })
   }, [idCategory])
 
   return (
