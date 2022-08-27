@@ -1,0 +1,80 @@
+.checkoutContainer, .thankYouContainer{
+    width: 50%;
+    padding: 2.5rem;
+    background-color: #1c1c1c;
+    box-shadow: 7px 5px 14px -6px #000000;
+    margin: 2rem auto;
+    border-radius: .6rem;  
+}
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.label, .detailCheckOut{
+    color:var(--white);
+    font-size: 1.7rem;
+}
+.label:first-child{
+    margin-bottom: 1rem;
+}
+.formInput{
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+    padding: 1.5rem;
+    width: 40%;
+    border-radius: .6rem;
+    transition: all .3s;
+    text-align: center;
+}
+.formInput:focus{
+    border: 2px solid var(--main-color);
+    outline: none;
+}
+
+.formInput::placeholder{
+    color: #cdcdcd;
+    text-align: center;
+}
+.title{
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.thankYouContainer{
+    display:  flex;
+    flex-direction: column;
+    justify-content: center;
+    color:  var(--white);
+    text-align: center;
+    gap: 2rem;
+    background-color: var(--black);
+}
+.buttonForm, .buttonThankYou{
+    background-color: var(--white);
+    font-size: 1.8rem;
+    padding: 1.5rem;
+    border: none;
+    cursor: pointer;
+    border-radius: .6rem;
+    font-family: 'Antonio', sans-serif;
+    margin-top: 2rem;
+    width: 40%;
+    transition: background-color .3s;
+    
+}
+.buttonForm:hover, .buttonThankYou:hover{
+    background-color: var(--main-color);
+}
+.titleThankYou{
+    font-size: 3rem;
+}
+.subtitleThankYou{
+    font-size: 2.2rem;
+}
+.checkIcon{
+    color: var(--main-color);
+    font-size: 6rem;
+}

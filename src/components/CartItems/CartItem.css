@@ -1,12 +1,12 @@
 .itemCart-container {
     display: grid;
     grid-template-columns: 30% 65%;
-    background-color: #1c1c1c;
+    background-color:  var(--black);
     column-gap: 2rem;
     padding: 2rem;
     border-radius: .6rem;
-    border: solid 2px #ffffffff;
-    color: #ffffffff;
+    border: solid 2px var(--white);
+    color: var(--white);
 }
 
 .description-container {
@@ -50,16 +50,17 @@
 }
 .products-buttons {
     background-color: transparent;
-    border: solid 2px #ffffff;
+    border: solid 2px var(--white);
     border-radius: .6rem;
     font-size: 2rem;
     cursor: pointer;
     padding: .8rem;
     margin: .2rem 0;
     transition: all .3s;
-    color: #ffffff;
+    color: var(--white);
 }
 .products-buttons:hover{
-    color: #61dafb;
-    border: solid 2px #61dafb;
+    color: var(--main-color);
+    border: solid 2px var(--main-color);
 }
+

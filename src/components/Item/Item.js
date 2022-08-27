@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Item.css'
 
-function Item({ img, name, category, price, stock, id }) {
+
+function Item({ img, name, category, price, id, stock}) {
 
   return (
     <div className='itemContainer'>

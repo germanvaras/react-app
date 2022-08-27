@@ -9,7 +9,7 @@ p {
 
 .sectionContainer {
     display: grid;
-    background-color: #1c1c1c;
+    background-color: var(--black);
     grid-template-columns: 30% 65%;
     justify-content: center;
     gap: 5rem;
@@ -63,10 +63,10 @@ p {
 }
 .showCart{
     background-color: transparent;
-    color: #ffffff;
+    color: var(--white);
     font-family: 'Antonio', sans-serif; 
     font-size: 1.8rem;
-    border: solid 2px #ffffff;
+    border: solid 2px var(--white);
     padding: 1rem ;
     margin-top: 1rem;
     border-radius: .6rem;
@@ -75,8 +75,8 @@ p {
     text-align: center;
 }
 .showCart:hover{
-    color: #61dafb;
-    border: solid 2px #61dafb;
+    color: var(--main-color);
+    border: solid 2px var(--main-color);
 }
 .link-categoria,
 .link-inicio {
@@ -87,7 +87,7 @@ p {
 
 .link-categoria:hover,
 .link-inicio:hover {
-    color: #61dafb
+    color: var(--main-color)
 }
 
 @media (max-width:768px) {

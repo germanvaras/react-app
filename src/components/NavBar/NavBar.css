@@ -1,5 +1,5 @@
 .header{
-    background-color: #1c1c1c;
+    background-color: var(--black);
     padding: 2rem 0;
     position:sticky;
     top: 0;
@@ -20,7 +20,7 @@
     transition: color .3s;
   }
   .ul-li:hover{
-    color: #61dafb
+    color: var(--main-color)
   }
   .ul-img{
     width: 12rem;

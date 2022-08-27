@@ -42,12 +42,12 @@
     padding: 1rem;
     margin: .5rem 0;
     transition: all .3s;
-    color: #ffffff;
+    color: var(--white);
 }
 
 .product-buy {
     font-size: 2rem;
-    color: #ffffff
+    color: var(--white)
 }
 
 .text-stock {
@@ -57,19 +57,18 @@
 
 .product-addCart {
     background-color: transparent;
-    color: #ffffff;
+    color: var(--white);
     font-family: 'Antonio', sans-serif; 
     font-size: 1.8rem;
-    border: solid 2px #ffffff;
+    border: solid 2px var(--white);
     padding: 1rem ;
     margin-top: 1rem;
     border-radius: .6rem;
     cursor: pointer;
     transition: all .3s;
-    order:4;
 }
 .product-buttonCount:hover,
 .product-addCart:hover {
-    color: #61dafb;
-    border: solid 2px #61dafb;
+    color: var(--main-color);
+    border: solid 2px var(--main-color);
 }

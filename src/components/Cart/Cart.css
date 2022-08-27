@@ -1,5 +1,5 @@
 .linkCart {
-    color: #000000
+    color:  var(--black)
 }
 
 .mainCart {
@@ -30,8 +30,8 @@
 }
 
 .cartResumeButtons:hover {
-    background-color: #000000;
-    color: #ffffff;
+    background-color:  var(--black);
+    color: var(--white);
 }
 
 .sectionCartItem {
@@ -88,7 +88,7 @@
 }
 .emptyCart {
     font-size: 20rem;
-    color: #1c1c1c;
+    color:  var(--black);
 }
 .emptyCartFace{
     font-size: 5rem;

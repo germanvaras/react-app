@@ -2,7 +2,9 @@ import React from 'react'
 import Item from '../Item/Item'
 import './ItemList.css'
 
+
 function ItemList({ data }) {
+
     return (
         data.map((product) => {
             return (
@@ -13,7 +15,7 @@ function ItemList({ data }) {
                     name={product.name}
                     category={product.category}
                     price={product.price}
-                    stock ={product.stock}
+                    stock={product.stock}
                 />
             )
         })

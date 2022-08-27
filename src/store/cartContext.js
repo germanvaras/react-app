@@ -12,20 +12,44 @@ export function CartProvider({ children }) {
     let copyCart = [...cart];
     // funcion de agregar al carrito
     function addToCart(data, amount) {
-        // si el producto extiste solo aumentar la cantidad
+        if(totalStock(data) > 0){
+            let IndexCart = findItem(data.id)
             if (isInCart(data.id)) {
-                let IndexCart = findItem(data.id)
-                    IndexCart.amount += amount;
-                    IndexCart.stock -= amount;
-                    data.stock -= amount;
-                    setCart(copyCart);
-                }
+                IndexCart.amount += amount;
+                IndexCart.stock -= amount;
+                data.stock -= amount;
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: `Has agregado ${amount}, de ${data.name} al carrito`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                setCart(copyCart);
+            }
             // si no existe pushearlo al carrito
             else {
                 data.stock -= amount;
                 copyCart.push({ ...data, amount });
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: `Has agregado ${amount}, de ${data.name} al carrito`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 setCart(copyCart);
-            }  
+            }
+        }
+        else{
+            Swal.fire({
+                position: 'top',
+                icon: 'error',
+                title: `No se puede agregar más de ${data.stock}, de ${data.name} ya que no hay más en stock`,
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
     }
     // funcion para remover un item por su id
     function removeItem(id) {
@@ -51,6 +75,15 @@ export function CartProvider({ children }) {
         copyCart.map((index) => total += index.price * index.amount);
         return total;
     }
+    function totalStock(data) {
+        let indexStock = findItem(data.id)
+        if (indexStock) {
+            return indexStock.stock
+        }
+        else {
+            return data.stock
+        }
+    }
     // funciones auxiliares
     // funcion para revisar si existe el item
     function isInCart(id) {
@@ -75,7 +108,7 @@ export function CartProvider({ children }) {
         }
     }
     return (
-        <cartContext.Provider value={{ cart, addToCart, removeItem, removeAll, totalAmount, totalPrice, plusItemsCart, subItemsCart }}>
+        <cartContext.Provider value={{ cart, addToCart, removeItem, removeAll, totalAmount, totalPrice, plusItemsCart, subItemsCart, totalStock }}>
             {children}
         </cartContext.Provider>
     );

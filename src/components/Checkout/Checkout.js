@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons'
 import firestoreDB from "../../services/firebase";
+import "./Checkout.css"
 function Checkout() {
   const { cart, totalPrice, removeAll } = useContext(cartContext)
   // Estado del comprador
@@ -53,27 +54,30 @@ function Checkout() {
   }
   if (orderFirebase.complete === true) {
   return(
-    <main>
-      <FontAwesomeIcon className="emptyCartFace" icon={faCircleCheck}/>
-      <h1>Compra exitosa!</h1>
-      <h2>Gracias por confiar en Sublime {userBuyer.name}</h2>
-      <h3>Se : {userBuyer.email}</h3>
-      <h3>El id de seguimiento de tu compra es: {orderFirebase.id}</h3>
-      <Link to ={"/"}> <button>Seguir Comprando</button></Link>
+    <main className='thankYouContainer'>
+      <FontAwesomeIcon className="checkIcon" icon={faCircleCheck}/>
+      <h1 className='titleThankYou'>Compra exitosa!</h1>
+      <h2 className='subtitleThankYou'>Gracias por confiar en Sublime {userBuyer.name}</h2>
+      <h3 className='detailCheckOut'>En instante recibirá el detalle de su pedido en la siguiente dirección: {userBuyer.email}</h3>
+      <h3 className='detailCheckOut'>El id de seguimiento de tu compra es: {orderFirebase.id}</h3>
+      <Link to ={"/"}> <button className='buttonThankYou'>Seguir Comprando</button></Link>
     </main>
   )
   }
   else{
     return (
-      <main>
-        <form onSubmit={handleSubmit} onReset={handleReset}>
-          <label htmlFor="name">Email</label>
-          <input type="text" name='name' value={userBuyer.name} onChange={inputChangeHandler} placeholder='Tú Nombre' required></input>
-          <label htmlFor="phone">Telefono</label>
-          <input type="number" name='phone'value={userBuyer.phone} onChange={inputChangeHandler} placeholder='123456789' required></input>
-          <label htmlFor="email">Email</label>
-          <input type="email" name='email' value={userBuyer.email} onChange={inputChangeHandler} placeholder='ejemplo@ejemplo.com' required></input>
-          <input type="submit" value='Comprar' ></input>
+      <main className='checkoutContainer'>
+        <h1 className='title'>Finalizar Compra</h1>
+
+        <form className='formContainer' onSubmit={handleSubmit} onReset={handleReset}>
+          <legend className='label'>Completa los datos y es tuya!</legend>
+          <label className='label' htmlFor="name">Nombre</label>
+          <input className='formInput' type="text" name='name' value={userBuyer.name} onChange={inputChangeHandler} placeholder='Juan Perez' required></input>
+          <label  className='label' htmlFor="phone">Teléfono</label>
+          <input className='formInput' type="number" name='phone'value={userBuyer.phone} onChange={inputChangeHandler} placeholder='123456789' required></input>
+          <label className='label'  htmlFor="email">Email</label>
+          <input className='formInput' type="email" name='email' value={userBuyer.email} onChange={inputChangeHandler} placeholder='ejemplo@ejemplo.com' required></input>
+          <input  className ='buttonForm'type="submit" value='Comprar' ></input>
         </form>
       </main>
     )
