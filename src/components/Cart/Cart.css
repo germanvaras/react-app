@@ -73,7 +73,7 @@
     column-gap: 2rem;
 }
 .emptyCartContainer {
-    height: 80vh;
+    height: 84.7vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,3 +93,10 @@
 .emptyCartFace{
     font-size: 5rem;
 }
+@media (max-width:860px ) {
+    .mainCart{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+  }

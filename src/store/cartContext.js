@@ -1,5 +1,7 @@
 import { createContext, useState } from "react";
 import Swal from 'sweetalert2'
+import { useEffect } from "react";
+
 // 1. Inicializamos el Context con React.createContext()
 // 2. Creamos un Provider y le damos un "value"
 // 3. Definimos los componentes que van a acceder al context (Consumers)
@@ -8,9 +10,13 @@ import Swal from 'sweetalert2'
 
 export const cartContext = createContext();
 export function CartProvider({ children }) {
-    const [cart, setCart] = useState([]);
+    const storageCart =  JSON.parse(localStorage.getItem("setStorage")) || []
+    const [cart, setCart] = useState(storageCart);
     let copyCart = [...cart];
     // funcion de agregar al carrito
+    useEffect(() => {
+        localStorage.setItem("setStorage", JSON.stringify(cart))
+    }, [cart])
     function addToCart(data, amount) {
         if(totalStock(data) > 0){
             let IndexCart = findItem(data.id)

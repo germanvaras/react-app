@@ -1,5 +1,5 @@
 import CartItem from "../CartItems/CartItem"
-import { useContext, useEffect } from 'react'
+import { useContext} from 'react'
 import { cartContext } from '../../store/cartContext';
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,21 +9,17 @@ import { faCartArrowDown, faFaceSadTear } from '@fortawesome/free-solid-svg-icon
 import "./Cart.css"
 
 function Cart() {
-    const { cart, removeItem, removeAll, totalPrice, totalAmount, plusItemsCart, subItemsCart} = useContext(cartContext);
+    const { cart, removeItem, removeAll, totalPrice, totalAmount, plusItemsCart, subItemsCart } = useContext(cartContext);
+
     function removeItemCart(id) {
         removeItem(id)
     }
-    function plusItem(id){
+    function plusItem(id) {
         plusItemsCart(id)
     }
-    function subItem(id){
+    function subItem(id) {
         subItemsCart(id)
     }
-
-    useEffect(() => {
-        console.log("cambie")
-    }, [cart])
-    
     if (cart.length === 0) {
         return (
             <main>
@@ -51,7 +47,7 @@ function Cart() {
                                 name={item.name}
                                 price={item.price * item.amount}
                                 amount={item.amount}
-                                stock={ item.stock}
+                                stock={item.stock}
                                 plusItem={plusItem}
                                 subItem={subItem}
                                 removeItemCart={removeItemCart}
