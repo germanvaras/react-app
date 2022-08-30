@@ -5,6 +5,7 @@
 .mainCart {
     display: grid;
     grid-template-columns: 40% 55%;
+    min-height: 84.7vh;
     column-gap: 2rem;
     padding: 2rem;
 }

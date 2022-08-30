@@ -1,11 +1,10 @@
 .footer{
     width: 100%;
-    position: relative;
-    top: 100%;
     padding: 3rem;
     background-color: var(--black);
     text-align: center;
     color: var(--white);
+    
 }
 .copyright{
     font-size: 1.8rem;
