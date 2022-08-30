@@ -1,3 +1,8 @@
+.mainCheckOut{
+    height: 84.7vh;
+    display: flex;
+    align-items: center;
+}
 .checkoutContainer,
 .thankYouContainer {
     width: 50%;
@@ -104,7 +109,6 @@
     .buttonForm,
     .buttonThankYou {
         width: 70%;
-
     }
 }
 
