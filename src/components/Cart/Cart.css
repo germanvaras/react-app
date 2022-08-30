@@ -94,10 +94,22 @@
 .emptyCartFace{
     font-size: 5rem;
 }
+button.swal2-confirm.swal2-styled.swal2-default-outline, 
+button.swal2-cancel.swal2-styled.swal2-default-outline{
+    font-size: 1.5em;
+    box-shadow: none;
+    font-weight: 400;
+}
+button.swal2-cancel.swal2-styled.swal2-default-outline{
+    color: var(--black)
+}
+div#swal2-html-container{
+    font-size: 1.6rem;
+}
 @media (max-width:860px ) {
     .mainCart{
         display: flex;
         flex-direction: column;
         gap: 1rem;
     }
-  }
+}

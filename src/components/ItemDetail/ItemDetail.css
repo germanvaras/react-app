@@ -89,7 +89,9 @@ p {
 .link-inicio:hover {
     color: var(--main-color)
 }
-
+.swal2-timer-progress-bar-container {
+    background: var(--main-color)
+  }
 @media (max-width:768px) {
     .sectionDetail{
         padding: 1.5rem;

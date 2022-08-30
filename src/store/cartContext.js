@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 export const cartContext = createContext();
 export function CartProvider({ children }) {
-    const storageCart =  JSON.parse(localStorage.getItem("setStorage")) || []
+    const storageCart = JSON.parse(localStorage.getItem("setStorage")) || []
     const [cart, setCart] = useState(storageCart);
     let copyCart = [...cart];
     // funcion de agregar al carrito
@@ -18,7 +18,7 @@ export function CartProvider({ children }) {
         localStorage.setItem("setStorage", JSON.stringify(cart))
     }, [cart])
     function addToCart(data, amount) {
-        if(totalStock(data) > 0){
+        if (totalStock(data) > 0) {
             let IndexCart = findItem(data.id)
             if (isInCart(data.id)) {
                 IndexCart.amount += amount;
@@ -27,9 +27,15 @@ export function CartProvider({ children }) {
                 Swal.fire({
                     position: 'top',
                     icon: 'success',
+                    iconColor: 'var(--main-color)',
+                    background: 'var(--black)',
+                    color: 'var(--white)',
                     title: `Has agregado ${amount}, de ${data.name} al carrito`,
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 1500,
+                    timerProgressBar: true,
+                    
+
                 })
                 setCart(copyCart);
             }
@@ -40,34 +46,94 @@ export function CartProvider({ children }) {
                 Swal.fire({
                     position: 'top',
                     icon: 'success',
+                    iconColor: 'var(--main-color)',
+                    background: 'var(--black)',
+                    color: 'var(--white)',
                     title: `Has agregado ${amount}, de ${data.name} al carrito`,
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 1500,
+                    timerProgressBar: true,
                 })
                 setCart(copyCart);
             }
         }
-        else{
+        else {
             Swal.fire({
                 position: 'top',
                 icon: 'error',
+                background: 'var(--black)',
+                color: 'var(--white)',
                 title: `No se puede agregar más de ${data.stock}, de ${data.name} ya que no hay más en stock`,
                 showConfirmButton: false,
-                timer: 1500
+                timer: 1500,
+                timerProgressBar: true,
             })
         }
     }
     // funcion para remover un item por su id
     function removeItem(id) {
         const itemRemove = findItem(id);
+        console.log(itemRemove)
         const indexItem = copyCart.indexOf(itemRemove);
-        copyCart.splice(indexItem, 1);
-        setCart(copyCart);
+        Swal.fire({
+            title: `¿Estas seguro que deseas eliminar este producto del carrito?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#fb6161',
+            background: 'var(--black)',
+            color: 'var(--white)',
+            cancelButtonColor: 'var(--main-color)',
+            confirmButtonText: 'Si, deseo eliminarlo!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                copyCart.splice(indexItem, 1);
+                setCart(copyCart);
+                Swal.fire({
+                    title: 'Eliminado!',
+                    text: `El producto ha sido eliminado del carrito.`,
+                    icon: 'success',
+                    iconColor: 'var(--main-color)',
+                    background: 'var(--black)',
+                    color: 'var(--white)',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: true,
+                }
+                )
+            }
+        })
     }
     // funcion vaciar al carrito
     function removeAll() {
-        copyCart = [];
-        setCart(copyCart);
+        Swal.fire({
+            title: `¿Estas seguro que deseas vaciar el carrito?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#fb6161',
+            background: 'var(--black)',
+            color: 'var(--white)',
+            cancelButtonColor: 'var(--main-color)',
+            confirmButtonText: 'Si, deseo eliminarlo!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                copyCart = [];
+                setCart(copyCart);
+                Swal.fire({
+                    title: 'Vaciado!',
+                    text: `El carrito ha sido vaciado.`,
+                    icon: 'success',
+                    iconColor: 'var(--main-color)',
+                    background: 'var(--black)',
+                    color: 'var(--white)',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: true,
+                }
+                )
+            }
+        })
     }
     // funcion para sacar el total de productos agregados al carrito aunque esten repetidos
     function totalAmount() {

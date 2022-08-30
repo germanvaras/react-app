@@ -1,34 +1,45 @@
-:root{
+:root {
   --main-color: #efa51e;
   --black: #1c1c1c;
   --white: #f5f5f5;
-  
+
 }
-*{
+
+* {
   margin: 0;
-  padding:0;
+  padding: 0;
   box-sizing: border-box;
 }
-body{
+
+body {
   background-color: #f1f1f1;
 }
-html{
+
+html {
   font-size: 62.5%;
 }
-a{
+
+a {
   text-decoration: none;
   list-style: none;
   color: var(--white);
 }
-p,a,h3,input, li{
+
+p,
+a,
+h3,
+input,
+li {
   font-family: 'Montserrat', sans-serif;
 }
-h3{
+
+h3 {
   font-weight: 600;
 }
-h1,h2{
-  font-family: 'Antonio', sans-serif; 
-}
 
+h1,
+h2 {
+  font-family: 'Antonio', sans-serif;
+}
 
 
