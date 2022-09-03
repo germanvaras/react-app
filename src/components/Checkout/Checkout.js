@@ -10,25 +10,21 @@ import "./Checkout.css"
 
 function Checkout() {
   const { cart, totalPrice, clearCart } = useContext(cartContext)
-  // Estado del comprador
   const [userBuyer, setUserBuyer] = useState({
     name: "",
     phone: "",
     email: "",
   })
-  // Estado de la orden de compra
   const [orderFirebase, setOrderFirebase] = useState({
     id: '',
     complete: false,
   });
-  // Informacion que se va almacernar en el estado de orden de compra
   const purchaseOrder = {
     buyer: { ...userBuyer },
     items: [...cart],
     total: totalPrice(),
     date: new Date(),
   };
-  // Cargar los datos a firebase
   async function handleSubmit(e) {
     e.preventDefault()
     const collectionRef = collection(firestoreDB, "orders");
@@ -36,7 +32,6 @@ function Checkout() {
     setOrderFirebase({ id: order.id, complete: true });
     clearCart()
   }
-  // Funcion para setear los values de los imputs y guardarlos en el estado del comprador
   function inputChangeHandler(e) {
     const input = e.target;
     const value = input.value;

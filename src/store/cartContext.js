@@ -1,19 +1,12 @@
 import { createContext, useState } from "react";
 import Swal from 'sweetalert2'
 import { useEffect } from "react";
-
-// 1. Inicializamos el Context con React.createContext()
-// 2. Creamos un Provider y le damos un "value"
-// 3. Definimos los componentes que van a acceder al context (Consumers)
-// 4. Damos a los componentes acceso al context con el hook useContext()
-// 5. Los componentes consumers podrán acceder y "subscribirse" al "value" del context
-
 export const cartContext = createContext();
+
 export function CartProvider({ children }) {
     const storageCart = JSON.parse(localStorage.getItem("setStorage")) || []
     const [cart, setCart] = useState(storageCart);
     let copyCart = [...cart];
-    // funcion de agregar al carrito
     useEffect(() => {
         localStorage.setItem("setStorage", JSON.stringify(cart))
     }, [cart])
@@ -38,7 +31,6 @@ export function CartProvider({ children }) {
                 })
                 setCart(copyCart);
             }
-            // si no existe pushearlo al carrito
             else {
                 data.stock -= amount;
                 copyCart.push({ ...data, amount });
@@ -69,7 +61,6 @@ export function CartProvider({ children }) {
             })
         }
     }
-    // funcion para remover un item por su id
     function removeItem(id) {
         const itemRemove = findItem(id);
         console.log(itemRemove)
@@ -103,7 +94,6 @@ export function CartProvider({ children }) {
             }
         })
     }
-    // funcion vaciar al carrito
     function removeAll() {
         Swal.fire({
             title: `¿Estas seguro que deseas vaciar el carrito?`,
@@ -134,13 +124,11 @@ export function CartProvider({ children }) {
             }
         })
     }
-    // funcion para sacar el total de productos agregados al carrito aunque esten repetidos
     function totalAmount() {
         let amountCart = 0;
         copyCart.map(index => amountCart += index.amount);
         return amountCart;
     }
-    // funcion que calcula el precio total
     function totalPrice() {
         let total = 0;
         copyCart.map((index) => total += index.price * index.amount);
@@ -155,12 +143,9 @@ export function CartProvider({ children }) {
             return data.stock
         }
     }
-    // funciones auxiliares
-    // funcion para revisar si existe el item
     function isInCart(id) {
         return (copyCart.some(itemInCart => itemInCart.id === id));
     }
-    // funcion para buscar un item en base a su id
     function findItem(id) {
         return (copyCart.find(item => item.id === id));
     }

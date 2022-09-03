@@ -1,6 +1,6 @@
-
 import { initializeApp } from "firebase/app";
 import {getFirestore} from "firebase/firestore"
+
 const firebaseConfig = {
     apiKey: "AIzaSyCWG6x1EsCp81nIRiHmm-FDr-BdMLtpf5s",
     authDomain: "sublime-tienda.firebaseapp.com",

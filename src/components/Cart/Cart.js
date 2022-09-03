@@ -4,8 +4,6 @@ import { cartContext } from '../../store/cartContext';
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartArrowDown, faFaceSadTear } from '@fortawesome/free-solid-svg-icons'
-
-
 import "./Cart.css"
 
 function Cart() {
