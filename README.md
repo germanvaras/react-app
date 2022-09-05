@@ -4,8 +4,9 @@
 <h2>Descripción del proyecto</h2>
 <hr>
 <p>El proyecto es un E-comerce de remeras con temática pop, creado con react-create-app, y estilado con CSS puro para lograr una identidad visual única y responsividad.
-El mismo cuenta con un Listado de Items que renderiza todos los productos o las diferentes caregorías segun la ruta en la que se encuentre el usuario. También cuenta con un detalle de cada uno de los productos, donde usuario puede agregarlos al carrito mientras haya stock disponible. 
-La cantidad a adquirir se puede modificar en el carrito. Además el carrito cuenta con la función de eliminar un producto especifico asi como vaciarlo por completo. Por ultimo la app web cuenta con un formulario para finalizar la compra y una vez realizada, renderiza una página de gracias. Enviado estos datos a Firebase(base de datos utilizada).</p>
+El mismo cuenta con un sección de listado de items que renderiza todos los productos o las diferentes categorías según la ruta en la que se encuentre el usuario. También cuenta con un detalle de cada uno de los productos, donde el usuario puede agregarlos al carrito mientras haya stock disponible. 
+La cantidad a adquirir se puede modificar en el carrito. Además el carrito cuenta con la función de eliminar un producto específico asi como vaciarlo por completo. El mismo mantiene su informacion a pesar de que se recargue o se cierre la página.
+Por último la app web cuenta con un formulario para finalizar la compra y una vez realizada, renderiza una página de gracias. Enviado estos datos a Firebase(base de datos utilizada).</p>
 <h2>Screenshots</h2>
 <h4>Listado de Items<h4>
 <img src="https://res.cloudinary.com/dveku4pvl/image/upload/v1662322778/home_ta3iti.jpg" alt="Listado de Item">
@@ -21,7 +22,7 @@ La cantidad a adquirir se puede modificar en el carrito. Además el carrito cuen
 <img src="https://res.cloudinary.com/dveku4pvl/image/upload/v1662322778/pagina-gracias_ieuqq8.jpg" alt="Página de gracias">
 <h4>Diseño Responsive<h4>
 <img src="https://res.cloudinary.com/dveku4pvl/image/upload/v1662322778/responsive_pn8xzp.jpg" alt="Diseño Responsivo">
-<h2>Tecnologias usadas</h2>
+<h2>Tecnologias utilizadas</h2>
 <hr>
 <ul>
 <li>HTML</li>
