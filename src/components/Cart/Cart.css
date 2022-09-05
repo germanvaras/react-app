@@ -5,7 +5,7 @@
 .mainCart {
     display: grid;
     grid-template-columns: 40% 55%;
-    min-height: 84.7vh;
+    min-height: 100vh;
     column-gap: 2rem;
     padding: 2rem;
 }
@@ -74,7 +74,7 @@
     column-gap: 2rem;
 }
 .emptyCartContainer {
-    height: 84.7vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

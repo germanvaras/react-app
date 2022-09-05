@@ -1,5 +1,5 @@
 .mainCheckOut{
-    height: 84.7vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
 }
